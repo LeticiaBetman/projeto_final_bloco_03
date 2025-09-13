@@ -1,69 +1,87 @@
-# React + TypeScript + Vite
+# 🏥 Projeto Final Bloco 03 — Farmácia (React + TypeScript + Vite)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este projeto é o **frontend de um sistema de comércio eletrônico para uma farmácia**, desenvolvido com **React**, **TypeScript** e **Vite**, consumindo um backend local para gerenciar categorias de produtos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades Implementadas
 
-## Expanding the ESLint configuration
+### Etapa 1 — Componentes básicos
+- Navbar, Home e Footer
+- Estrutura de layout com **Tailwind CSS**
+- Validação de alinhamento e posicionamento usando **FlexBox**
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Etapa 2 — Rotas da aplicação
+- Configuração do **React Router DOM**
+- Links de navegação no Navbar
+- Teste de navegação entre páginas
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Etapa 3 — CRUD Categoria
+- Model **Categoria** com os atributos `id`, `nome` e `descricao`
+- Service **CategoriaService** utilizando **Axios**
+- Componentes:
+  - `ListaCategorias` — exibe todas as categorias
+  - `CardCategoria` — exibe cada categoria individualmente
+  - `FormCategoria` — cadastra ou atualiza uma categoria
+- Funcionalidades: **GET, POST, PUT e DELETE** funcionando com backend local
+- Teste de integração entre frontend e backend na porta 4000
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Tecnologias e Bibliotecas
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/)
+- [React Router DOM](https://reactrouter.com/)
+- [Phosphor Icons](https://phosphoricons.com/)
+- [React Spinners](https://www.npmjs.com/packag)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Estrutura do Projeto
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+src/
+├── assets/ # Imagens e ícones
+├── components/ # Componentes reutilizáveis (Navbar, Footer, Cards)
+├── models/ # Interfaces de dados (ex: Categoria.ts)
+├── pages/ # Páginas da aplicação
+├── services/ # Serviços para consumir API (Axios)
+├── App.tsx # Componente principal com rotas
+└── main.tsx # Entrada do Vite
+backend_farmacia/
+└── server.js # Backend local para CRUD de categorias
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+
+---
+
+## Como Rodar o Projeto
+
+### 1️⃣ Rodar o Backend
+No terminal, entre na pasta do backend (`backend_farmacia`) e rode:
+
+```bash
+node server.js
+
+O backend será iniciado na porta 4000.
+
+### 2️⃣ Rodar o Frontend
+
+Em outro terminal, entre na pasta do frontend (projeto_final_bloco_03) e rode:
+
+```bash
+npm install
+npm run dev
+
+O frontend será iniciado pelo Vite em http://localhost:5173.
+
+O backend precisa estar ativo para que o CRUD funcione corretamente.
+
+✅ Observações
+
+O projeto utiliza estado em React e hooks para atualizar a interface após operações no backend.
+
+Ícones são fornecidos pelo Phosphor Icons.
+
+Estilização responsiva é feita com Tailwind CSS.
+
+
